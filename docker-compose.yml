@@ -10,9 +10,9 @@ services:
       - DB_USER=bookstack
       - DB_PASS=${MYSQL_PASSWORD}
       - DB_DATABASE=bookstackapp
-      - APP_URL=https://wiki.busykoala.ch/
+      - APP_URL=http://194.13.82.8:6875
     volumes:
-      - bookstack_data:/config
+      - ./data:/config
     ports:
       - 6875:80
     restart: unless-stopped
@@ -30,9 +30,5 @@ services:
       - MYSQL_USER=bookstack
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
     volumes:
-      - bookstack_data:/config
+      - ./data:/config
     restart: unless-stopped
-
-volumes:
-    bookstack_data:
-        driver: local
